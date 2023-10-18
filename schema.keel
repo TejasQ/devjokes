@@ -1,0 +1,20 @@
+model Joke {
+    fields {
+        question Text
+        answer Text
+    }
+
+    @permission(
+        actions: [create, get, update, delete],
+        expression: true
+    )
+}
+
+job AddJoke {
+    inputs {
+        question Text
+        answer Text
+    }
+
+    @permission(expression: true)
+}
