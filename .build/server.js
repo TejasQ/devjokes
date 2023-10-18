@@ -1,8 +1,10 @@
 import { handleRequest, handleJob, handleSubscriber, tracing } from '@teamkeel/functions-runtime';
 import { createContextAPI, createJobContextAPI, createSubscriberContextAPI, permissionFns } from '@teamkeel/sdk';
 import { createServer } from "http";
+import function_getRandomJoke from "../functions/getRandomJoke.ts";
 import job_addJoke from "../jobs/addJoke.ts";
 const functions = {
+    getRandomJoke: function_getRandomJoke,
 }
 const jobs = {
     addJoke: job_addJoke,
@@ -10,6 +12,7 @@ const jobs = {
 const subscribers = {
 }
 const actionTypes = {
+    getRandomJoke: "ACTION_TYPE_GET",
 }
 
 const listener = async (req, res) => {

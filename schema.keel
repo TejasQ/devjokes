@@ -4,6 +4,12 @@ model Joke {
         answer Text
     }
 
+    actions {
+        list listJokes()
+        get getJokeById(id)
+        get getRandomJoke() @function
+    }
+
     @permission(
         actions: [create, get, update, delete],
         expression: true
