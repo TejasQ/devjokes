@@ -8,6 +8,7 @@ model Joke {
         list listJokes()
         get getJokeById(id)
         get getRandomJoke() @function
+        create createJoke() with (question, answer)
     }
 
     @permission(
