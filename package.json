@@ -15,6 +15,7 @@
     "@teamkeel/testing-runtime": "^0.368.0",
     "kysely": "^0.23.4",
     "node-fetch": "^3.3.0",
+    "openai": "^4.12.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tsx": "^3.12.6",

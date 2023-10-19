@@ -13,6 +13,7 @@ model Joke {
             @set(joke.source = "whatsapp")
         }
         create addJoke() with (question, answer)
+        read validateJoke(ValidateJokeInput) returns (ValidationResponse)
     }
 
     @permission(
@@ -28,4 +29,13 @@ job AddJoke {
     }
 
     @permission(expression: true)
+}
+
+message ValidateJokeInput {
+    question Text
+    answer Text?
+}
+
+message ValidationResponse {
+    valid Bool
 }

@@ -2,19 +2,20 @@ import { handleRequest, handleJob, handleSubscriber, tracing } from '@teamkeel/f
 import { createContextAPI, createJobContextAPI, createSubscriberContextAPI, permissionFns } from '@teamkeel/sdk';
 import { createServer } from "http";
 import function_getRandomJoke from "../functions/getRandomJoke.ts";
+import function_validateJoke from "../functions/validateJoke.ts";
 import job_addJoke from "../jobs/addJoke.ts";
-import job_clearWhatsappJokes from "../jobs/clearWhatsappJokes.ts";
 const functions = {
     getRandomJoke: function_getRandomJoke,
+    validateJoke: function_validateJoke,
 }
 const jobs = {
     addJoke: job_addJoke,
-    clearWhatsappJokes: job_clearWhatsappJokes,
 }
 const subscribers = {
 }
 const actionTypes = {
     getRandomJoke: "ACTION_TYPE_GET",
+    validateJoke: "ACTION_TYPE_READ",
 }
 
 const listener = async (req, res) => {
