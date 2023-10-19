@@ -12,6 +12,7 @@ model Joke {
         create addJokeFromWhatsapp() with (question, answer) {
             @set(joke.source = "whatsapp")
         }
+        create addJoke() with (question, answer)
     }
 
     @permission(

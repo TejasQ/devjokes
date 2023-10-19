@@ -3,11 +3,13 @@ import { createContextAPI, createJobContextAPI, createSubscriberContextAPI, perm
 import { createServer } from "http";
 import function_getRandomJoke from "../functions/getRandomJoke.ts";
 import job_addJoke from "../jobs/addJoke.ts";
+import job_clearWhatsappJokes from "../jobs/clearWhatsappJokes.ts";
 const functions = {
     getRandomJoke: function_getRandomJoke,
 }
 const jobs = {
     addJoke: job_addJoke,
+    clearWhatsappJokes: job_clearWhatsappJokes,
 }
 const subscribers = {
 }

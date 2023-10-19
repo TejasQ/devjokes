@@ -11,8 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@teamkeel/client-react": "^0.368.0",
-    "@teamkeel/functions-runtime": "^0.366.0",
-    "@teamkeel/testing-runtime": "^0.366.0",
+    "@teamkeel/functions-runtime": "^0.368.0",
+    "@teamkeel/testing-runtime": "^0.368.0",
     "kysely": "^0.23.4",
     "node-fetch": "^3.3.0",
     "react": "^18.2.0",
