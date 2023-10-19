@@ -38,7 +38,7 @@ export default ValidateJoke(async (ctx, inputs) => {
 
     const res = chatCompletion.choices[0].message.content;
 
-    // Is something goes wrong let's give them the benefit of hte doubt
+    // Is something goes wrong let's give them the benefit of the doubt
     const defaultResponse = { valid: true };
 
     if (!res) return defaultResponse;
