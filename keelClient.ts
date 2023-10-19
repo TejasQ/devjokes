@@ -252,6 +252,12 @@ export class APIClient extends Core {
         getRandomJoke : (i?: GetRandomJokeInput) => {
             return this.client.rawRequest<Joke | null>("getRandomJoke", i);
         },
+        addJokeFromWhatsapp : (i: AddJokeFromWhatsappInput) => {
+            return this.client.rawRequest<Joke>("addJokeFromWhatsapp", i);
+        },
+        addJoke : (i: AddJokeInput) => {
+            return this.client.rawRequest<Joke>("addJoke", i);
+        },
         authenticate : (i: AuthenticateInput) => {
             return this.client.rawRequest<AuthenticateResponse>("authenticate", i).then((res) => {
               if (res.data && res.data.token) this.client.setToken(res.data.token);
@@ -268,14 +274,16 @@ export class APIClient extends Core {
 
     api = {
         queries: {
-            listJokes: this.actions.listJokes.bind(this),
-            getJokeById: this.actions.getJokeById.bind(this),
-            getRandomJoke: this.actions.getRandomJoke.bind(this),
+            listJokes: this.actions.listJokes,
+            getJokeById: this.actions.getJokeById,
+            getRandomJoke: this.actions.getRandomJoke,
         },
         mutations: {
-            authenticate: this.actions.authenticate.bind(this),
-            requestPasswordReset: this.actions.requestPasswordReset.bind(this),
-            resetPassword: this.actions.resetPassword.bind(this),
+            addJokeFromWhatsapp: this.actions.addJokeFromWhatsapp,
+            addJoke: this.actions.addJoke,
+            authenticate: this.actions.authenticate,
+            requestPasswordReset: this.actions.requestPasswordReset,
+            resetPassword: this.actions.resetPassword,
         }
     };
 
@@ -296,6 +304,14 @@ export interface GetJokeByIdInput {
     id: string;
 }
 export interface GetRandomJokeInput {
+}
+export interface AddJokeFromWhatsappInput {
+    question: string;
+    answer: string;
+}
+export interface AddJokeInput {
+    question: string;
+    answer: string;
 }
 export interface AddJokeMessage {
     question: string;
@@ -328,13 +344,14 @@ export interface ResetPasswordResponse {
 export interface Joke {
     question: string
     answer: string
+    source: string | null
     id: string
     createdAt: Date
     updatedAt: Date
 }
 export interface Identity {
     email: string | null
-    emailVerified: boolean | null
+    emailVerified: boolean
     password: any | null
     externalId: string | null
     issuer: string | null
