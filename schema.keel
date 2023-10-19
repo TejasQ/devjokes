@@ -2,13 +2,16 @@ model Joke {
     fields {
         question Text
         answer Text
+        source Text?
     }
 
     actions {
         list listJokes()
         get getJokeById(id)
         get getRandomJoke() @function
-        create createJoke() with (question, answer)
+        create addJokeFromWhatsapp() with (question, answer) {
+            @set(joke.source = "whatsapp")
+        }
     }
 
     @permission(
