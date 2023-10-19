@@ -3,7 +3,7 @@ model Joke {
         question Text
         answer Text
         source Text?
-    } 
+    }
 
     actions {
         list listJokes()
@@ -17,7 +17,7 @@ model Joke {
     }
 
     @permission(
-        actions: [create, get, update, delete],
+        actions: [create, list, get, update, delete],
         expression: true
     )
 }
