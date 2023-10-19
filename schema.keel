@@ -3,7 +3,7 @@ model Joke {
         question Text
         answer Text
         source Text?
-    }
+    } 
 
     actions {
         list listJokes()
